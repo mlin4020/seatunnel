@@ -201,7 +201,7 @@ public class PostgresTypeConverterTest {
 
     @Test
     public void testConvertVarchar() {
-        BasicTypeDefine<Object> typeDefine = 
+        BasicTypeDefine<Object> typeDefine =
                 BasicTypeDefine.builder()
                         .name("test")
                         .columnType("varchar")
@@ -213,7 +213,7 @@ public class PostgresTypeConverterTest {
         Assertions.assertEquals(null, column.getColumnLength());
         Assertions.assertEquals(typeDefine.getColumnType(), column.getSourceType());
 
-        typeDefine = 
+        typeDefine =
                 BasicTypeDefine.builder()
                         .name("test")
                         .columnType("varchar(10)")
@@ -229,7 +229,7 @@ public class PostgresTypeConverterTest {
 
     @Test
     public void testConvertVarchar2() {
-        BasicTypeDefine<Object> typeDefine = 
+        BasicTypeDefine<Object> typeDefine =
                 BasicTypeDefine.builder()
                         .name("test")
                         .columnType("varchar2")
@@ -241,7 +241,7 @@ public class PostgresTypeConverterTest {
         Assertions.assertEquals(null, column.getColumnLength());
         Assertions.assertEquals(typeDefine.getColumnType(), column.getSourceType());
 
-        typeDefine = 
+        typeDefine =
                 BasicTypeDefine.builder()
                         .name("test")
                         .columnType("varchar2(10)")

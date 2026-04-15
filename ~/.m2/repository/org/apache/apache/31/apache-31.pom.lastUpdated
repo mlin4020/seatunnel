@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Apr 15 05:39:00 UTC 2026
+https\://mirrors.tuna.tsinghua.edu.cn/maven/.error=Could not transfer artifact org.apache\:apache\:pom\:31 from/to tsinghua (https\://mirrors.tuna.tsinghua.edu.cn/maven/)\: transfer failed for https\://mirrors.tuna.tsinghua.edu.cn/maven/org/apache/apache/31/apache-31.pom
+@default-tsinghua-https\://mirrors.tuna.tsinghua.edu.cn/maven/.lastUpdated=1776231540585

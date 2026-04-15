@@ -208,6 +208,7 @@ public class PostgresTypeConverter implements TypeConverter<BasicTypeDefine> {
                 break;
             case PG_VARCHAR:
             case PG_CHARACTER_VARYING:
+            case "varchar2":
                 builder.dataType(BasicType.STRING_TYPE);
                 if (typeDefine.getLength() == null || typeDefine.getLength() <= 0) {
                     builder.sourceType(pgDataType);

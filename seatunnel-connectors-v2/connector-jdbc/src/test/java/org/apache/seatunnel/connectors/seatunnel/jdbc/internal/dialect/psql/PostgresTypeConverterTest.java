@@ -201,7 +201,7 @@ public class PostgresTypeConverterTest {
 
     @Test
     public void testConvertVarchar() {
-        BasicTypeDefine<Object> typeDefine =
+        BasicTypeDefine<Object> typeDefine = 
                 BasicTypeDefine.builder()
                         .name("test")
                         .columnType("varchar")
@@ -213,11 +213,39 @@ public class PostgresTypeConverterTest {
         Assertions.assertEquals(null, column.getColumnLength());
         Assertions.assertEquals(typeDefine.getColumnType(), column.getSourceType());
 
-        typeDefine =
+        typeDefine = 
                 BasicTypeDefine.builder()
                         .name("test")
                         .columnType("varchar(10)")
                         .dataType("varchar")
+                        .length(10L)
+                        .build();
+        column = PostgresTypeConverter.INSTANCE.convert(typeDefine);
+        Assertions.assertEquals(typeDefine.getName(), column.getName());
+        Assertions.assertEquals(BasicType.STRING_TYPE, column.getDataType());
+        Assertions.assertEquals(40, column.getColumnLength());
+        Assertions.assertEquals(typeDefine.getColumnType(), column.getSourceType());
+    }
+
+    @Test
+    public void testConvertVarchar2() {
+        BasicTypeDefine<Object> typeDefine = 
+                BasicTypeDefine.builder()
+                        .name("test")
+                        .columnType("varchar2")
+                        .dataType("varchar2")
+                        .build();
+        Column column = PostgresTypeConverter.INSTANCE.convert(typeDefine);
+        Assertions.assertEquals(typeDefine.getName(), column.getName());
+        Assertions.assertEquals(BasicType.STRING_TYPE, column.getDataType());
+        Assertions.assertEquals(null, column.getColumnLength());
+        Assertions.assertEquals(typeDefine.getColumnType(), column.getSourceType());
+
+        typeDefine = 
+                BasicTypeDefine.builder()
+                        .name("test")
+                        .columnType("varchar2(10)")
+                        .dataType("varchar2")
                         .length(10L)
                         .build();
         column = PostgresTypeConverter.INSTANCE.convert(typeDefine);
